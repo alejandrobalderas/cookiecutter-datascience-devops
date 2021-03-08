@@ -15,7 +15,7 @@
 From the command line run
 
 ```bash
-cookiecutter https://github.com/alejandrobalderas/data-science-template
+cookiecutter https://github.com/alejandrobalderas/cookiecutter-datascience-docker
 ```
 
 This will ask you several questions of your project. This include:
