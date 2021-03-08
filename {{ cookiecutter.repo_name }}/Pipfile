@@ -4,11 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [dev-packages]
-
-[requires]
-python_version = "{{cookiecutter.python_version}}"
-
-[packages]
 pandas = "*"
 numpy = "*"
 scikit-learn = "*"
@@ -18,6 +13,11 @@ jupyterlab = "*"
 seaborn = "*"
 matplotlib = "*"
 statsmodels = "*"
+
+[requires]
+python_version = "{{cookiecutter.python_version}}"
+
+[packages]
 
 [packages.e1839a8]
 path = "."

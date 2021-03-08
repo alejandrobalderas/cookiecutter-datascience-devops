@@ -19,16 +19,15 @@ init:
 	# docker build --tag $(BASE_CONTAINER) --build-arg UID=$(USER_ID) --build-arg GID=$(GROUP_ID) .
 	docker-compose build --build-arg UID=$(USER_ID) --build-arg GID=$(GROUP_ID) base
 
-## Install Python Dependencies
-requirements: 
-	pipenv install
-
 build:
 	docker-compose build --build-arg UID=$(USER_ID) GID=$(GROUP_ID)
 
 bash:
 	docker-compose run app bash
 
+run:
+	docker-compose up app
+	
 jupyter:
 	docker-compose up jupyter
 

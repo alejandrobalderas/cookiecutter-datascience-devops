@@ -6,6 +6,7 @@ FROM python:{{cookiecutter.python_version}}-slim
 ARG USERNAME=dev
 ARG UID=1000
 ARG GID=1000
+ARG MODE="--dev"
 
 ENV PIPENV_SKIP_LOCK=1
 
@@ -36,7 +37,7 @@ COPY --chown=${USERNAME} Pipfile setup.py ./
 COPY --chown=${USERNAME} src/__init__.py src/
 
 # Install all the dependencies
-RUN pipenv install
+RUN pipenv install ${MODE}
 
 # Copy the rest of the files and directories
 COPY --chown=${USERNAME} . .
