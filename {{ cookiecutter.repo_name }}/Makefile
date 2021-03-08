@@ -23,11 +23,11 @@ build:
 	docker-compose build --build-arg UID=$(USER_ID) GID=$(GROUP_ID)
 
 bash:
-	docker-compose run app bash
+	docker-compose run app bash --init-file initfile
 
 run:
 	docker-compose up app
-	
+
 jupyter:
 	docker-compose up jupyter
 
