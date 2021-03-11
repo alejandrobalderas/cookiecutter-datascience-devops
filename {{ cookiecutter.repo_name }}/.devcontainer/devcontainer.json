@@ -11,12 +11,15 @@
 
   // Set *default* container specific settings.json values on container create.
   "settings": {
-    "terminal.integrated.shell.linux": null,
-    "terminal.integrated.shellArgs.linux": ["--init-file", "initfile"]
+    "terminal.integrated.shell.linux": null
   },
 
   // Add the IDs of extensions you want installed when the container is created.
-  "extensions": [],
+  "extensions": [
+    "ms-python.python",
+    "njpwerner.autodocstring",
+    "kevinrose.vsc-python-indent"
+  ],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [{{cookiecutter.jupyter_port}}],
