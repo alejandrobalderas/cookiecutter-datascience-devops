@@ -4,5 +4,6 @@
   "author_name": "Your Name",
   "description": "The best description you can think of",
   "python_version": "3.9",
+  "use_r": "no",
   "jupyter_port": "8888"
 }

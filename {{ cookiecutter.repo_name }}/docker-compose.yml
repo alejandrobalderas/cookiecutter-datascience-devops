@@ -2,15 +2,17 @@ version: "3"
 services:
   base:
     image: {{ cookiecutter.repo_name }}
+    container_name: {{ cookiecutter.repo_name }}
     build:
       context: .
       dockerfile: Dockerfile
+    command: ["pipenv", "run", "python", "main.py"]
 
-  app:
+  dev:
     depends_on:
       - base
     image: {{ cookiecutter.repo_name }}
-    container_name: "{{ cookiecutter.repo_name }}_app"
+    container_name: "{{ cookiecutter.repo_name }}_dev"
     volumes:
       - .:/app
     working_dir: /app

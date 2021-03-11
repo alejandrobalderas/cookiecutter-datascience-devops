@@ -22,6 +22,11 @@ RUN groupadd -g ${GID} -o ${USERNAME} &&\
     echo ${USERNAME} ALL=\(ALL\) NOPASSWD:ALL > /etc/sudoers.d/${USERNAME} &&\
     chmod 0440 /etc/sudoers.d/${USERNAME}
 
+{% if cookiecutter.use_r == 'yes' %}
+RUN apt install -y r-base
+RUN R -e "install.packages('IRkernel')"
+RUN usermod -aG staff ${USERNAME}
+{% endif %}
 
 # Switches to the user
 USER ${USERNAME}
@@ -44,3 +49,7 @@ COPY --chown=${USERNAME} . .
 
 # Makes out a nice prompt in case you have to go inside of the container for any reason
 RUN echo 'export PS1="🐳 \[\033[1;36m\][\u@docker] \[\033[1;34m\]\W\[\033[0;35m\] # \[\033[0m\]"' >> ~/.bashrc
+
+{% if cookiecutter.use_r == 'yes' %}
+RUN pipenv run R -e "IRkernel::installspec()"
+{% endif %}
