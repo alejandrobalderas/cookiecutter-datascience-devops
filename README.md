@@ -6,7 +6,10 @@
 - Cookiecutter 1.6 or later
 - Docker 20 or later
 
-### Cookiecutter Requirements
+### Install Cookiecutter
+```bash
+pip install cookiecutter
+```
 
 ## Start a new project
 
@@ -15,7 +18,7 @@
 From the command line run
 
 ```bash
-cookiecutter https://github.com/alejandrobalderas/cookiecutter-datascience-docker
+cookiecutter https://github.com/alejandrobalderas/cookiecutter-datascience-devops
 ```
 
 This will ask you several questions of your project. This include:
@@ -25,6 +28,7 @@ This will ask you several questions of your project. This include:
 - "author_name": Your name
 - "description" : This will be used in your README file
 - "python_version" : Choose which version of python you want to run. This will pull the corresponding docker image and use this version in the Pipfile. The python version could be change later on so it would be advised to take the latest available
+- "use_R": answer yes if you want to install R alongside Python inside the Docker container.
 - "jupyter_port" : This will map the port inside of the container to the chosen port in your local computer. Choose a port that is not being used.
 
 ## Using with Docker
